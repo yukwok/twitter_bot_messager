@@ -2,6 +2,6 @@
 # --- to the Twitter services
 PROMISED_DOWNLOAD = 150
 PROMISED_UPLOAD = 10
-CHROME_DRIVER_PATH = ""
+CHROME_DRIVER_PATH = "/Users/prog/VScode/python/webdev/chromedriver"
 TWITTER_EMAIL = "sdgsdgdsg@gmail.com"
 TWITTER_PASSWORD = "sdgsysegdxgdsfgsdffg"
