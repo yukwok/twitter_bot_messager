@@ -45,9 +45,13 @@ class InternetSpeedTwitterBot:
             '//*[@id="react-root"]/div/div/div[2]/main/div/div/div[2]/form/div/div[2]/label/div/div[2]/div/input')
         email.send_keys(TWITTER_EMAIL)
         password.send_keys(TWITTER_PASSWORD)
-        time.sleep(10)
-        password.send_keys(keys.ENTER)
         time.sleep(5)
+
+        password.send_keys(keys.Keys.ENTER)
+
+        for x in range(30):
+            time.sleep(1)
+            print(x)
         print("tweet...")
 
         what_happening = self.driver.find_element_by_xpath(
