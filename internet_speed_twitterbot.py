@@ -49,17 +49,21 @@ class InternetSpeedTwitterBot:
 
         password.send_keys(keys.Keys.ENTER)
 
-        for x in range(30):
+        for x in range(30):  # -- 30 second needed because slow internet speed
             time.sleep(1)
             print(x)
         print("tweet...")
 
         what_happening = self.driver.find_element_by_xpath(
             '//*[@id="react-root"]/div/div/div[2]/main/div/div/div/div/div/div[2]/div/div[2]/div[1]/div/div/div/div[2]/div[1]/div/div/div/div/div/div/div/div/label/div[1]/div/div/div/div/div[2]/div/div/div/div')
-        what_happening.send_keys("Hello Twitter")
+        what_happening.send_keys(
+            f"Download speed:{self.down}, upload speed:{self.up}")   # --- twitter
+        time.sleep(5)
+
+        password.send_keys(keys.Keys.ENTER)
 
 
 # --- below is testing code
 bot = InternetSpeedTwitterBot(CHROME_DRIVER_PATH)
-# bot.get_internet_speed()
+bot.get_internet_speed()
 bot.tweet_at_provider()
