@@ -1,3 +1,4 @@
+from time import time
 from selenium import webdriver
 
 
@@ -18,3 +19,18 @@ class InternetSpeedTwitterBot:
         self.driver = webdriver.Chrome(executable_path=driver_path)
         self.up = 0
         self.down = 0
+
+    def get_internet_speed(self):
+        self.driver.get("https://www.speedtest.net/")
+        accept_button = self.driver.find_element_by_id(
+            "_evidon-banner-acceptbutton")
+        accept_button.click()
+        time.sleep(3)
+
+        go_button = self.driver.find_element_by_css_selector(".start-button a")
+        go_button.click()
+        time.sleep(60)
+        self.up = self.driver.find_element_by_xpath(
+            '//*[@id="container"]/div/div[3]/div/div/div/div[2]/div[3]/div[3]/div/div[3]/div/div/div[2]/div[1]/div[2]/div/div[2]/span').text
+        self.down = self.driver.find_element_by_xpath(
+            '//*[@id="container"]/div/div[3]/div/div/div/div[2]/div[3]/div[3]/div/div[3]/div/div/div[2]/div[1]/div[3]/div/div[2]/span').text
